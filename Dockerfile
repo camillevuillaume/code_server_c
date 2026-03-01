@@ -12,10 +12,13 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-FROM caddy:builder AS builder
+# Build stage
+FROM caddy:2-builder AS builder
 
 RUN xcaddy build \
     --with github.com/caddy-dns/porkbun
 
-FROM caddy:latest
+# Final stage
+FROM caddy:2
+
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
