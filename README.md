@@ -11,6 +11,12 @@ Includes the code server container from linuxserver.io, Caddy as reverse propy a
 I am using Porkbun for DNS, and the setup is intended to run on an AWS EC2 instance.
 
 
+## AWS Preparation
+I recommend a t3.micro EC2 instance with Ubuntu, and a 16GB EBS volume (we need space for the containers images and builds).
+Open the following ports:
+- 80 (HTTP)
+- 443 (HTTPS)
+
 ## Setup
 I assume that you have a domain name in Porkbun and enabled API access. 
 1. Clone this repo.
@@ -24,7 +30,8 @@ porkbun_secret_api_key="your porkbun secret api key"
 porkbun_domain="your domain name" 
 porkbun_subdomain=""
 porkbun_polling_interval=300
-```
-3. Run `docker-compose up -d` to start the containers.
 
+```
+3. Create the subfolders `config`, `caddy_config` and `caddy_data`. 
+4. Run `docker-compose up -d` to start the containers.
 

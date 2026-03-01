@@ -28,6 +28,9 @@ services:
       - ./caddy_data:/data
       - ./caddy_config:/config
       - /etc/localtime:/etc/localtime:ro
+    environment:
+      - PORKBUN_API_KEY=${PORKBUN_API_KEY}
+      - PORKBUN_API_SECRET=${PORKBUN_API_SECRET}
     depends_on:
       - code-server
 
