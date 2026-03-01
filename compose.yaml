@@ -28,7 +28,7 @@ services:
       - ./caddy_data:/data
       - ./caddy_config:/config
       - /etc/localtime:/etc/localtime:ro
-      depends_on:
+    depends_on:
       - code-server
 
   porkbun-ddns:
