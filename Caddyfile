@@ -2,6 +2,7 @@
     # Global options
     http_port 80
     https_port 443
+    email camillevuillaume@gmail.com
 }
 
 # Main domain with automatic SSL
