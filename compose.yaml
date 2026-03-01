@@ -30,7 +30,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     environment:
       - PORKBUN_API_KEY=${PORKBUN_API_KEY}
-      - PORKBUN_API_SECRET=${PORKBUN_API_SECRET}
+      - PORKBUN_API_SECRET=${PORKBUN_SECRET_API_KEY}
     depends_on:
       - code-server
 
