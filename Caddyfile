@@ -16,7 +16,7 @@ codingtest.dev {
     }
 
     # Reverse proxy to the backend service
-    reverse_proxy localhost:8443
+    reverse_proxy code-server:8443
     
     # Logging
     log {
