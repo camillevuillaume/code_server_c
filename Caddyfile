@@ -9,7 +9,10 @@
 codingtest.dev {
     # Use Let's Encrypt with DNS validation through Porkbun
     tls {
-        dns porkbun {env.PORKBUN_API_KEY} {env.PORKBUN_SECRET_API_KEY}
+        dns porkbun {
+            api_key {env.PORKBUN_API_KEY} 
+            api_secret_key {env.PORKBUN_SECRET_API_KEY}
+        }
     }
 
     # Reverse proxy to the backend service
