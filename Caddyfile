@@ -1,0 +1,23 @@
+{
+    # Global options
+    http_port 80
+    https_port 443
+}
+
+# Main domain with automatic SSL
+codingtest.dev {
+    
+    # Logging
+    log {
+        output file /data/access.log
+        format json
+    }
+    
+}
+
+# Redirect HTTP to HTTPS
+http://codingtest.dev {
+    redir https://codingtest.dev{uri} 301
+}
+
+

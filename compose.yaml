@@ -1,0 +1,48 @@
+services:
+  code-server:
+    build: .
+    container_name: code-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - PASSWORD=${PASSWORD}
+      - SUDO_PASSWORD=${SUDO_PASSWORD} #optional
+      - DEFAULT_WORKSPACE=/config/workspace #optional
+      - PWA_APPNAME=code-server #optional
+    volumes:
+      - ./config:/config
+    ports:
+      - 8443:8443
+    restart: unless-stopped
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./caddy_data:/data
+      - ./caddy_config:/config
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - CADDY_EMAIL=${CADDY_EMAIL}
+    depends_on:
+      - code-server
+
+  porkbun-ddns:
+    image: "mietzen/porkbun-ddns:latest" 
+    container_name: porkbun-ddns
+    restart: unless-stopped
+    environment:
+      - APIKEY=${PORKBUN_API_KEY}
+      - SECRETAPIKEY=${PORKBUN_SECRET_API_KEY}
+      - DOMAIN=${PORKBUN_DOMAIN}
+      - SUBDOMAIN=${PORKBUN_SUBDOMAIN}
+      - POLLING_INTERVAL=${PORKBUN_POLLING_INTERVAL}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    
