@@ -6,6 +6,16 @@
 
 # Main domain with automatic SSL
 codingtest.dev {
+    # Use Let's Encrypt with DNS validation through Porkbun
+    tls {
+        dns porkbun {
+            porkbun_api_key ${PORKBUN_API_KEY}
+            porkbun_api_secret ${PORKBUN_API_SECRET}
+        }
+    }
+
+    # Reverse proxy to the backend service
+    reverse_proxy localhost:8443
     
     # Logging
     log {
