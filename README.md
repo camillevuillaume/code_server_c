@@ -42,7 +42,7 @@ porkbun_polling_interval=300
 You can start the instance automatically when the VM is started with systemd.
 First, create a systemd service file.
 ```bash
-sudo nano /etc/systemd/system/myapp.service
+sudo nano /etc/systemd/system/codeserver.service
 ```
 With the following contents
 ```INI
@@ -64,6 +64,6 @@ WantedBy=multi-user.target
 ```
 Enable the service with
 ```bash
-sudo systemctl enable myapp
+sudo systemctl enable codeserver
 ```
 Now docker compose will start the containers automatically after the next reboot/start.
