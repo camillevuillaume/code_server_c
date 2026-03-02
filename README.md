@@ -1,5 +1,6 @@
 # code_server_c
 Code server web instance ready for C and Python, including caddy as reverse proxy and automatic DNS with Porkbun. 
+This can be used for coding interviews by starting the instance and giving a password to the candidate.
 
 ## Features
 - Main use case: online coding tests for recruiting, with C and Python support.
