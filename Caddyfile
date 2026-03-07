@@ -2,11 +2,11 @@
     # Global options
     http_port 80
     https_port 443
-    email camillevuillaume@gmail.com
+    email {env.EMAIL}
 }
 
 # Main domain with automatic SSL
-codingtest.dev {
+{env.PORKBUN_DOMAIN} {
     # Use Let's Encrypt with DNS validation through Porkbun
     tls {
         dns porkbun {
@@ -27,8 +27,8 @@ codingtest.dev {
 }
 
 # Redirect HTTP to HTTPS
-http://codingtest.dev {
-    redir https://codingtest.dev{uri} 301
+http://{env.PORKBUN_DOMAIN} {
+    redir https://{env.PORKBUN_DOMAIN}{uri} 301
 }
 
 

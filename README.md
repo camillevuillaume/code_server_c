@@ -26,14 +26,14 @@ I assume that you have a domain name in Porkbun and enabled API access.
 1. Clone this repo.
 2. Create a .env file with the following variables:
 ```bash
-password="password for code server"
-sudo_password="sudo password for the code server container"
-caddy_email="your email for Caddy and let's encrypt"
-porkbun_api_key="your porkbun api key"
-porkbun_secret_api_key="your porkbun secret api key" 
-porkbun_domain="your domain name" 
-porkbun_subdomain=""
-porkbun_polling_interval=300
+PASSWORD="password for code server"
+SUDO_PASSWORD="sudo password for the code server container"
+EMAIL="your email for Caddy and let's encrypt"
+PORKBUN_API_KEY="your porkbun api key"
+PORKBUN_SECRET_API_KEY="your porkbun secret api key" 
+PORKBUN_DOMAIN="your domain name" 
+PORKBUN_SUBDOMAIN=""
+PORKBUN_POLLING_INTERVAL=300
 
 ```
 3. Create the subfolders `config`, `caddy_config` and `caddy_data`. 
