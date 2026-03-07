@@ -26,6 +26,8 @@ services:
     environment:
       - PORKBUN_API_KEY=${PORKBUN_API_KEY}
       - PORKBUN_SECRET_API_KEY=${PORKBUN_SECRET_API_KEY}
+      - PORKBUN_DOMAIN=${PORKBUN_DOMAIN}
+      - EMAIL=${EMAIL}
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - ./caddy_data:/data
