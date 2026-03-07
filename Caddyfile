@@ -26,9 +26,4 @@
     
 }
 
-# Redirect HTTP to HTTPS
-http://{env.PORKBUN_DOMAIN} {
-    redir https://{env.PORKBUN_DOMAIN}{uri} 301
-}
-
 
